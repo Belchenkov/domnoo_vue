@@ -26,13 +26,31 @@
                     { name: 'burgers', active: false},
                     { name: 'salad', active: false},
                     { name: 'dessert', active: false},
-                ]
+                ],
+                products: []
             }
         },
         methods: {
             changeMenu(value) {
                 this.buttons.forEach(item => item.name == value ? item.active = true : item.active = false);
             }
+        },
+        created() {
+            this.$http.get('products.json')
+                .then(response =>response.json())
+                .then(data => {
+                    let list = [];
+
+                    for (let key in data) {
+                        list.push({
+                           ...data[key],
+                           id: key
+                        });
+                    }
+
+                    this.products = list;
+                })
+                .catch(err => console.error(err));
         }
     }
 </script>
