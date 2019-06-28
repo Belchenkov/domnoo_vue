@@ -1,5 +1,9 @@
 # Domnoo Pizza
 
+### Landing Pizza-Shop on Vue.js
+
+Demo: https://domnoo-8a782.firebaseapp.com/
+
 ## Project setup
 ```
 npm install
